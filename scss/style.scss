@@ -52,6 +52,11 @@
                     font-size: 60px;
                     text-shadow: rgba(255, 255, 255, 0.819) 0px 0px 10px;
                 }
+                @media screen and (max-width: 568px) {
+                    .track-name{
+                        font-size: 30px;
+                    }
+                  }
                 .track-artist{
                     font-size: 20px;
                     padding: 15px 0px;
