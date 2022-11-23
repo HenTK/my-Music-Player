@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- my css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>My Music Player</title>
+</head>
+
+<body>
+    <section class="musicPlayer">
+        <div class="player">
+            <div class="wraper">
+                <div class="details">
+                    <div class="now-playing">Playing music 1 of 4</div>
+                    <div class="track-art"></div>
+                    <div class="track-name">Chuyện đôi ta</div>
+                    <div class="track-artist">EMCEE L, MUỘI</div>
+                </div>
+                <div class="slider-container">
+                    <div class="current-time">00:00</div>
+                    <input type="range" class="seek_slider" min="1" max="100" value="0"
+                        style="background: linear-gradient(to right, rgb(58, 39, 59), rgb(90, 120, 153));">
+                    <div class="total-duration">00:00</div>
+                </div>
+                <div class="slider-container">
+                    <i class="fa-solid fa-volume-off"></i>
+                    <input type="range" class="volume_slider" min="1" max="100" value="10"
+                        style="background: linear-gradient(to right, rgb(58, 39, 59), rgb(90, 120, 153));"
+                        onchange="setVolume()">
+                    <i class="fa-solid fa-volume-high"></i>
+                </div>
+                <div class="buttons">
+                    <div class="random-track">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </div>
+                    <div class="prev-track" onclick="getPrevTrack()">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </div>
+                    <div class="play-pause" onclick="playOrPauseTrack()">
+                        <i class="fa-solid fa-circle-play play-icon"></i>
+                    </div>
+                    <div class="next-track" onclick="getNextTrack()">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </div>
+                    <div class="repeat-track" onclick="repeatTrack()">
+                        <i class="fa-solid fa-repeat"></i>
+                    </div>
+                </div>
+                <div class="wave">
+                    <div class="stroke"></div>
+                    <div class="stroke"></div>
+                    <div class="stroke"></div>
+                    <div class="stroke"></div>
+                    <div class="stroke"></div>
+                    <div class="stroke"></div>
+                    <div class="stroke"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
