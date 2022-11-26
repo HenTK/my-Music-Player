@@ -52,7 +52,9 @@ var isPlaying = false;
 var isRandom = false;
 var updateTimer;
 
-loadTrack(trackIndex);
+window.onload = function () {
+  loadTrack(trackIndex);
+};
 
 function loadTrack(trackIndex) {
   clearInterval(updateTimer);
@@ -72,16 +74,21 @@ function loadTrack(trackIndex) {
 }
 
 function getNextTrack() {
+  const dataVol = getLocalStorage();
+  console.log(dataVol);
   if (trackIndex < MUSIC_LIST.length - 1) {
     trackIndex += 1;
   } else {
     trackIndex = 0;
   }
   loadTrack(trackIndex);
+  volumeSlider.value = dataVol * 100;
   playTrack();
 }
 
 function getPrevTrack() {
+  const dataVol = getLocalStorage();
+  console.log(dataVol);
   if (trackIndex <= MUSIC_LIST.length - 1 && trackIndex >= 0) {
     trackIndex -= 1;
   }
@@ -89,6 +96,7 @@ function getPrevTrack() {
     trackIndex = MUSIC_LIST.length - 1;
   }
   loadTrack(trackIndex);
+  volumeSlider.value = dataVol * 100;
   playTrack();
 }
 
@@ -162,5 +170,19 @@ function setUpdate() {
 
 function setVolume() {
   currentTrack.volume = volumeSlider.value / 100;
-  console.log(volumeSlider.value / 100);
+  const dataVol = currentTrack.volume;
+  setLocalStorage(dataVol);
 }
+
+const setLocalStorage = (volume) => {
+  const stringify = JSON.stringify(volume);
+  localStorage.setItem("VOLUMEN_KEY", stringify);
+};
+
+const getLocalStorage = () => {
+  const stringify = localStorage.getItem("VOLUMEN_KEY");
+  if (stringify) {
+    return JSON.parse(stringify);
+  }
+  return 0;
+};
